@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .key-output {
+        font-family: "Courier New", monospace;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="bg-[#1F2428] p-10 rounded-xl shadow-xl w-96">
+        <h1
+          class="text-4xl font-bold text-center text-gradient bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 mb-6"
+        >
+          Key Tracker
+        </h1>
+        <p class="text-center text-white mb-6">
+          Press any key on your keyboard and see it logged below!
+        </p>
+        <div class="bg-[#2C3531] p-4 rounded-lg">
+          <h2 class="text-xl font-semibold text-gray-200">Key Logged:</h2>
+          <div
+            id="key-output"
+            class="text-3xl font-mono text-silver-500 p-4 rounded-lg mt-4 text-center"
+          >
+            Press a key
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("keydown", function (event) {
+        const keyOutput = document.getElementById("key-output");
+        const yourKey = event.key === " " ? "Space" : event.key;
+        keyOutput.textContent = `${yourKey}`;
+      });
+    </script>
+  </body>
+</html>
